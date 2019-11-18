@@ -1,6 +1,7 @@
 import React from 'react';
-import {Router,Link,Route} from 'react-router';
-import Catalog from './Catalog'
+import {BrowserRouter as Router,Link,Route} from 'react-router-dom';
+import Catalog from './Catalog';
+import OwnerPropertys from './OwnerProperties';
 const Navbar = () => {
   return (
     <div className = 'navbar'>
@@ -8,6 +9,8 @@ const Navbar = () => {
         <Link to ='/'>Home</Link>
         <Link to = '/Catalog'>Listed Campsites.</Link>
         <Route path = '/Catalog' component = {Catalog}/>
+        <Link to='/OwnerPropertys' >Create Listing</Link>
+        <Route path ='/Ownerpropertys' component = {OwnerPropertys}/>
       </Router>
       </div>
   )
