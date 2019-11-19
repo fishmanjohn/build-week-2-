@@ -1,5 +1,5 @@
-import React from 'react';
-import PropertyDetails from './PropertyDetails'
+import React, {useState,useEffect } from 'react';
+import CatalogCard from './CatalogCard'
 const dummyData = [
   {
     owner_id: 0,
@@ -83,15 +83,39 @@ const dummyData = [
 console.log(dummyData)
 
 
+
 const Catalog = () => {
+
+const [listings, setListings] = useState(dummyData)
+const [searchTerm, setSearchTerm] = useState('')
+
+const handleChange = e => {
+  setSearchTerm(e.target.value)
+  }
+
+
+const handleSearch = (input) =>{
+  setListings(
+    listings.filter(item =>{ 
+      console.log(item)
+      return item.address.toLowerCase().includes(input.toLowerCase())
+    }))}
+
+
   return (
     <div>
-     {dummyData.map( (data, index) => {
-              return <PropertyDetails data = {data} key={index}/>
+      <form onSubmit={(e)=>{
+        e.preventDefault()
+      handleSearch(searchTerm)
+      }}>
+              <input type='text' placeholder = 'Search locations' onChange = {handleChange}></input>
+            <button type='submit' onSubmit = {handleSearch} >Submit.</button>
+              </form>
+     {listings.map( (data, index) => {
+              return <CatalogCard data = {data} key={index}/>
           })}
       
     </div>
   )
-}
-
-export default Catalog
+        }
+        export default Catalog

@@ -6,10 +6,11 @@ const Navbar = () => {
   return (
     <div className = 'navbar'>
       <Router>
-        <Link to ='/'>Home</Link>
-        <Link to = '/Catalog'>Listed Campsites.</Link>
-        <Route path = '/Catalog' component = {Catalog}/>
+        <h1>RV Air B and B.</h1>
+        <Link to = '/Catalog'>Home</Link>
         <Link to='/OwnerPropertys' >Create Listing</Link>
+        <Route path = '/Catalog' component = {Catalog}/>
+        
         <Route path ='/Ownerpropertys' component = {OwnerPropertys}/>
       </Router>
       </div>
