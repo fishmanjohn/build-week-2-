@@ -11,7 +11,8 @@ const Navbar = () => {
         <Link to='/OwnerPropertys' >Create Listing</Link>
         <Route path = '/Catalog' component = {Catalog}/>
         
-        <Route path ='/Ownerpropertys' component = {OwnerPropertys}/>
+       <Route path ='/Ownerpropertys' component = {OwnerPropertys}/> 
+
       </Router>
       </div>
   )
